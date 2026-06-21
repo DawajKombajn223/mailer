@@ -1,0 +1,19 @@
+name: flask-integration
+description: Skill wspierający testy i dokumentację Flask oraz interfejsów webowych
+applyTo:
+  - path: "**/app.py"
+  - path: "**/mailer/**"
+  - path: "**/templates/**"
+  - path: "**/tests/**"
+topics:
+  - flask
+  - web
+  - integration
+  - testing
+languageDetection:
+  preferredLanguage: python
+  patterns:
+    - "Flask"
+    - "render_template"
+    - "@app.route"
+    - "request"

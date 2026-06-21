@@ -70,7 +70,29 @@
 - Stosuj dedykowane wyjątki, np. `EmailValidationError`, `SmtpConnectionError`
 - Unikaj „cichego” pomijania wyjątków; zgłaszaj je lub odpowiednio obsługuj
 
-## 8. Komponenty projektu
+## 8. Testing Strategy (Mailer Complete Testing Skill)
+Zwróć się do skill'u **"Mailer Complete Testing Skill"** (`.copilot/skills/mailer-testing/`) dla szczegółów.
+
+Minimalne wymagania:
+- Każda funkcja: min. 2 testy
+- Testy edge cases + obsługa błędów
+- Mockowanie usług zewnętrznych (SMTP, bazy danych)
+- Coverage: minimum 80% linii kodu
+- Komponenty do testowania:
+  - Email Validation (format, długość, special characters)
+  - Email Sending (single/multiple recipients, attachments, error handling)
+  - Subscribers Management (add, remove, list, duplicate prevention)
+  - Web Interface (routes, form validation, HTML rendering)
+
+Narzędzia:
+- `pytest` – runner testów
+- `pytest-cov` – pomiar code coverage
+- `pytest-mock` – mockowanie
+- `coverage` – raport coverage
+
+Polecenie: "Use mailer-complete-testing skill"
+
+## 10. Komponenty projektu
 - `mailer/` – logika biznesowa i obsługa wysyłki wiadomości. Oddziel konfigurację od kodu biznesowego.
 - `templates/` – szablony Flask HTML. Używaj bezpiecznego renderowania i semantycznych elementów.
 - `static/` – zasoby CSS/JavaScript. Organizuj pliki tak, aby łatwo było je odnaleźć i aktualizować.
