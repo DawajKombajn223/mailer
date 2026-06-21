@@ -1,0 +1,15 @@
+name: email-validation
+description: Skill dla walidacji adresów email i testowania
+topics:
+  - validation
+  - email
+  - regex
+  - testing
+applyTo:
+  - path: "**/validators/**"
+  - path: "**/test_*subscribers*"
+languageDetection:
+  preferredLanguage: python
+  patterns:
+    - "@"
+    - "email"
