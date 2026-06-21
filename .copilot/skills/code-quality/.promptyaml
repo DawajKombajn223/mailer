@@ -1,0 +1,19 @@
+name: code-quality
+description: Narzędzia do formatowania, lintingu i kontroli jakości kodu
+applyTo:
+  - path: "**/*.py"
+  - path: "mailer/**"
+  - path: "validators/**"
+  - path: "tests/**"
+topics:
+  - formatting
+  - linting
+  - code-quality
+  - type-checking
+  - style
+languageDetection:
+  preferredLanguage: python
+  patterns:
+    - "import"
+    - "def "
+    - "class "
