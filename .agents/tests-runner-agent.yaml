@@ -1,0 +1,47 @@
+name: tests-runner-agent
+description: Agent uruchamiający i raportujący testy dla projektu Mailer
+model: claude-3-5-sonnet
+purpose: |
+  Agent uruchamia testy, analizuje wyniki i przygotowuje raport.
+  Obsługuje testy jednostkowe, coverage oraz jakość kodu.
+capabilities:
+  - test-execution
+  - code-analysis
+  - reporting
+activation:
+  trigger: "Run tests for [module]"
+  keywords:
+    - "run tests"
+    - "execute tests"
+    - "test runner"
+workflow:
+  - step1: Prepare environment
+    description: Zainstaluj zależności i ustaw ścieżki
+  - step2: Execute tests
+    description: Uruchom pytest z coverage
+  - step3: Analyze results
+    description: Przeanalizuj output i odkryj błędy
+  - step4: Report
+    description: Przygotuj raport oraz rekomendacje poprawek
+tools:
+  - runTests
+  - fileRead
+  - fileWrite
+  - codeAnalysis
+  - terminal
+memory:
+  - testResults
+  - coverageReports
+  - failurePatterns
+restrictions:
+  - mustIncludeTypeHints: true
+  - mustFollowPEP257: true
+  - validateMarkdown: true
+output:
+  format: markdown
+  location: docs/test-reports/
+  structure:
+    - summary
+    - details
+    - coverage
+    - recommendations

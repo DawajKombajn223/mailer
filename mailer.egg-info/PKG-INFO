@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: mailer
+Version: 0.1.0
+Summary: Email sending and subscriber management system
+Author-email: Developer <dev@example.com>
+Requires-Python: >=3.9
+Provides-Extra: dev
+Requires-Dist: pytest>=9.0; extra == "dev"
+Requires-Dist: pytest-cov>=7.0; extra == "dev"
+Requires-Dist: pytest-mock>=3.0; extra == "dev"
+Requires-Dist: black>=24.0; extra == "dev"
+Requires-Dist: flake8>=7.0; extra == "dev"
+Requires-Dist: ruff>=0.1; extra == "dev"
+Requires-Dist: mypy>=1.0; extra == "dev"
+Requires-Dist: isort>=5.0; extra == "dev"

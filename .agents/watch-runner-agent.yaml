@@ -1,0 +1,45 @@
+name: watch-runner-agent
+description: Agent monitorujący zmiany w kodzie i automatycznie uruchamiający testy.
+model: claude-3-5-sonnet
+purpose: |
+  Agent strzeże repozytorium przed regresjami, obserwując zmiany w katalogach kodu i testów.
+  Przy każdej zmianie plików uruchamia testy i raportuje wynik.
+capabilities:
+  - watch-files
+  - test-execution
+  - reporting
+activation:
+  trigger: "Watch project and run tests"
+  keywords:
+    - "watch files"
+    - "auto test"
+    - "watch tests"
+workflow:
+  - step1: Prepare environment
+    description: Ensure dependencies are installed and watcher script is available.
+  - step2: Start watcher
+    description: Launch file watcher to monitor `mailer/`, `validators/`, and `tests/`.
+  - step3: Run tests on change
+    description: Execute `pytest` automatically when Python files change.
+  - step4: Report results
+    description: Summarize pass/fail state after each run.
+tools:
+  - terminal
+  - fileRead
+  - fileWrite
+  - runTests
+memory:
+  - watchState
+  - lastTestResults
+  - failurePatterns
+restrictions:
+  - mustIncludeTypeHints: true
+  - mustFollowPEP257: true
+output:
+  format: markdown
+  location: docs/test-reports/
+  structure:
+    - summary
+    - changes
+    - testResults
+    - recommendations
