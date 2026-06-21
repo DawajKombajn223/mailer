@@ -1,0 +1,72 @@
+name: Documentation Generator Agent
+description: >
+  Autonomiczny agent generujący dokumentację dla projektu Mailer.
+  Analizuje kod, testy i commit messages, generując zawartość do dokumentacji.
+
+model: claude-3-5-sonnet  # lub dostępny model
+
+purpose: |
+  Agent skanuje repozytorium i generuje:
+  - API documentation
+  - Installation guides
+  - Usage examples
+  - Testing guidelines
+
+capabilities:
+  - code-analysis
+  - documentation-generation
+  - example-creation
+  - test-analysis
+
+activation:
+  trigger: "Generate documentation for [module]"
+  keywords:
+    - "generate docs"
+    - "create documentation"
+    - "document this"
+
+workflow:
+  - step1: Scan target code
+    description: Zbierz informacje o modulach, funkcjach, klasach
+  
+  - step2: Extract patterns
+    description: Identyfikuj wzorce, zależności, API
+  
+  - step3: Generate docs
+    description: Stwórz dokumentację w formacie Markdown
+  
+  - step4: Create examples
+    description: Dodaj praktyczne przykłady
+  
+  - step5: Validate
+    description: Sprawdź completeness i accuracy
+
+tools:
+  - fileRead
+  - fileWrite
+  - codeAnalysis
+  - gitLog
+  - runTests
+
+memory:
+  - projectStructure
+  - apiSignatures
+  - examples
+  - standards
+
+restrictions:
+  - mustIncludeTypeHints: true
+  - mustFollowPEP257: true
+  - noSpamming: true
+  - validateMarkdown: true
+
+output:
+  format: markdown
+  location: docs/
+  structure:
+    - overview
+    - installation
+    - quickstart
+    - api-reference
+    - examples
+    - troubleshooting

@@ -1,0 +1,12 @@
+name: mailer-complete-testing
+description: |
+  Kompleksowy skill dla testowania wszystkich komponentów mailera
+applyTo:
+  - path: "**/tests/**"
+  - path: "test_*.py"
+topics:
+  - testing
+  - pytest
+  - email
+  - flask
+  - validation
